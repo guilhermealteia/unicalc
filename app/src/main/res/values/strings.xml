@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UniCalc</string>
+    <string name="login_welcome">UniCalc</string>
+    <string name="et_email">mail@mail.com</string>
+    <string name="et_password">∙∙∙∙∙∙∙∙</string>
+    <string name="bt_login">entrar</string>
+    <string name="title_activity_calc">CalcActivity</string>
+</resources>
