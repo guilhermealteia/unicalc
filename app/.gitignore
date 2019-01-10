@@ -1,0 +1,12 @@
+.idea
+.gradle
+build
+local.properties
+gitcontent-content-*.*
+_extras/_apk
+/gradle/
+*.DS_Store
+opencv.iml
+
+/app/.externalNativeBuild/
+/*.iml
