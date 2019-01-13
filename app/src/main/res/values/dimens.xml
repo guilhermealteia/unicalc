@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="bimestralMediaFields">60dp</dimen>
+    <dimen name="semestralMediaFields">120dp</dimen>
+    <dimen name="defaultMargin">25dp</dimen>
+    <dimen name="textSize_media_bimestral">20sp</dimen>
+    <dimen name="textSize_media_semestral">30sp</dimen>
 </resources>

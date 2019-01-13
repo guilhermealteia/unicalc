@@ -5,4 +5,11 @@
     <string name="et_password">∙∙∙∙∙∙∙∙</string>
     <string name="bt_login">entrar</string>
     <string name="title_activity_calc">CalcActivity</string>
+    <string name="tv_media1">0</string>
+    <string name="tv_media2">0</string>
+    <string name="tv_mediaFinal">0</string>
+    <string name="tv_label_media1">P1</string>
+    <string name="tv_label_media2">P2</string>
+    <string name="tv_label_mediaFinal">Média Final</string>
+    <string name="tv_label_medias">RESULTADOS</string>
 </resources>

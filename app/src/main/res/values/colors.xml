@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#263a7f</color>
+    <color name="colorPrimaryDark">#17224b</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="cinza_unip">#f1f2f3</color>
+    <color name="azul_unip">#263a7f</color>
+    <color name="amarelo_unip">#f0f900</color>
+    <color name="azul_claro_unip">#6994cb</color>#fcfcfc
 </resources>

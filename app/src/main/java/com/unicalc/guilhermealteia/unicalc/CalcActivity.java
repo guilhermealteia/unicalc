@@ -11,7 +11,7 @@ import android.view.View;
 
 public class CalcActivity extends AppCompatActivity {
 
-    Intent intent;
+//    Intent intent;
     String value;
 
 
@@ -19,31 +19,20 @@ public class CalcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        intent = getIntent();
-        value = intent.getStringExtra("email");
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        waitTime(fab,1000);
-        Snackbar.make(fab, value, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
-
-    private void waitTime(View v, int millis) {
-        v.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-
-            }
-
-        }, millis);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        intent = getIntent();
+//        value = intent.getStringExtra("email");
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        waitTime(fab,1000);
+//        Snackbar.make(fab, value, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+//
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 }
