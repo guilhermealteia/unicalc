@@ -12,4 +12,7 @@
     <string name="tv_label_media2">P2</string>
     <string name="tv_label_mediaFinal">Média Final</string>
     <string name="tv_label_medias">RESULTADOS</string>
+    <string name="tv_label_p1">Provas e trabalhos P1</string>
+    <string name="tv_label_p2">Provas e trabalhos P2</string>
+    <string name="tv_label_exame">Exame</string>
 </resources>

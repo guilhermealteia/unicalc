@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,9 +12,9 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="@dimen/defaultMargin"
+        android:layout_marginRight="@dimen/defaultMargin"
         android:layout_marginBottom="10dp"
         android:background="@drawable/activity_calc_bg">
 
@@ -120,14 +121,50 @@
                 android:layout_marginTop="5dp"
                 android:text="@string/tv_label_mediaFinal"/>
         </RelativeLayout>
-
     </RelativeLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-</android.support.design.widget.CoordinatorLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/activity_calc_bg"
+        android:layout_margin="@dimen/defaultMargin"
+        app:layout_constraintTop_toBottomOf="@id/relativeLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="400dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:gravity="center_vertical"
+                android:text="@string/tv_label_p1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:text=""/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:text="@string/tv_label_p2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:text=""/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:text="@string/tv_label_exame"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/defaultHeightLabels"
+                android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:text=""/>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
