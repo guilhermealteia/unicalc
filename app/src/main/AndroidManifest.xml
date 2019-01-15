@@ -13,7 +13,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".CalcActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:label="@string/calc_screen_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

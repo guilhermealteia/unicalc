@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/constraintLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azul_unip"
-    tools:context=".CalcActivity">
+    tools:context=".CalcActivity"
+    android:paddingTop="@dimen/defaultMargin">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="@dimen/defaultMargin"
         android:layout_marginRight="@dimen/defaultMargin"
         android:layout_marginBottom="10dp"
+        android:paddingBottom="10dp"
         android:background="@drawable/activity_calc_bg">
 
         <TextView
@@ -135,10 +138,17 @@
             android:layout_height="400dp">
 
             <TextView
+                android:id="@+id/tv_label_p1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/defaultHeightLabels"
                 android:paddingLeft="@dimen/defaultPaddingLabels"
                 android:gravity="center_vertical"
+
+                android:background="@drawable/tv_label_p1_p2_exame"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textAlignment="center"
+
                 android:text="@string/tv_label_p1"/>
             <TextView
                 android:layout_width="match_parent"
@@ -149,17 +159,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/defaultHeightLabels"
                 android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:gravity="center_vertical"
+
+                android:background="@drawable/tv_label_p1_p2_exame"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textAlignment="center"
+
                 android:text="@string/tv_label_p2"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/defaultHeightLabels"
                 android:paddingLeft="@dimen/defaultPaddingLabels"
                 android:text=""/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/defaultHeightLabels"
                 android:paddingLeft="@dimen/defaultPaddingLabels"
+                android:gravity="center_vertical"
+
+                android:background="@drawable/tv_label_p1_p2_exame"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textAlignment="center"
+
                 android:text="@string/tv_label_exame"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/defaultHeightLabels"

@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#17224b</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="cinza_unip">#f1f2f3</color>
+    <color name="cinza_oficial_unip">#f1f2f3</color>
+    <color name="cinza_unip">#e6f1f2f3</color>
+    <color name="cinza_escuro_unip">#5a000200</color>
     <color name="azul_unip">#263a7f</color>
     <color name="amarelo_unip">#f0f900</color>
     <color name="azul_claro_unip">#6994cb</color>#fcfcfc
