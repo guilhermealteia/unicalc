@@ -5,6 +5,7 @@
     <dimen name="defaultMargin">25dp</dimen>
     <dimen name="textSize_media_bimestral">20sp</dimen>
     <dimen name="textSize_media_semestral">30sp</dimen>
-    <dimen name="defaultPaddingLabels">10dp</dimen>
-    <dimen name="defaultHeightLabels">30dp</dimen>
+    <dimen name="default_padding_labels">10dp</dimen>
+    <dimen name="default_height_labels">30dp</dimen>
+    <dimen name="default_layout_weight_label">.85</dimen>
 </resources>

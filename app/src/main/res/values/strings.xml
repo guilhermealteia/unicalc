@@ -16,4 +16,5 @@
     <string name="tv_label_p1">Provas e trabalhos P1</string>
     <string name="tv_label_p2">Provas e trabalhos P2</string>
     <string name="tv_label_exame">Exame</string>
+    <string name="et_hint_input_nota">0</string>
 </resources>

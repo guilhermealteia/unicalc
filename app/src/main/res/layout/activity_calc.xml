@@ -129,69 +129,125 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/activity_calc_bg"
+        android:background="@drawable/container_calc_bg"
         android:layout_margin="@dimen/defaultMargin"
         app:layout_constraintTop_toBottomOf="@id/relativeLayout">
         <LinearLayout
+            android:id="@+id/ll_input_notas"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_label_p1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_label_p1"
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/default_layout_weight_label"
+                    android:layout_height="@dimen/default_height_labels"
+                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/tv_label_p1"/>
 
-                android:background="@drawable/tv_label_p1_p2_exame"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:textAlignment="center"
+                <EditText
+                    android:id="@+id/et_p1"
+                    android:layout_width="0dp"
+                    android:layout_weight=".15"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:hint="@string/et_hint_input_nota"
+                    android:autofillHints=""
+                    android:text="" />
+            </LinearLayout>
 
-                android:text="@string/tv_label_p1"/>
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:text=""/>
-            <TextView
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_label_p2"
+                    android:layout_width="0dp"
+                    android:layout_weight="@dimen/default_layout_weight_label"
+                    android:layout_height="@dimen/default_height_labels"
+                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/tv_label_p2"/>
+
+                <EditText
+                    android:id="@+id/et_p2"
+                    android:layout_width="0dp"
+                    android:layout_weight=".15"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:hint="@string/et_hint_input_nota"
+                    android:autofillHints=""
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_label_exame"
+                    android:layout_width="0dp"
+                    android:layout_weight=".85"
+                    android:layout_height="@dimen/default_height_labels"
+                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/tv_label_exame"/>
 
-                android:background="@drawable/tv_label_p1_p2_exame"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:textAlignment="center"
-
-                android:text="@string/tv_label_p2"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:text=""/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:gravity="center_vertical"
-
-                android:background="@drawable/tv_label_p1_p2_exame"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:textAlignment="center"
-
-                android:text="@string/tv_label_exame"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/defaultHeightLabels"
-                android:paddingLeft="@dimen/defaultPaddingLabels"
-                android:text=""/>
+                <EditText
+                    android:id="@+id/et_exame"
+                    android:layout_width="0dp"
+                    android:layout_weight=".15"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:hint="@string/et_hint_input_nota"
+                    android:autofillHints=""
+                    android:text="" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
