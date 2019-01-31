@@ -6,6 +6,7 @@
     <string name="et_password">∙∙∙∙∙∙∙∙</string>
     <string name="bt_login">entrar</string>
     <string name="title_activity_calc">CalcActivity</string>
+    <string name="title_activity_main">MainActivity</string>
     <string name="tv_media1">0</string>
     <string name="tv_media2">0</string>
     <string name="tv_mediaFinal">0</string>
