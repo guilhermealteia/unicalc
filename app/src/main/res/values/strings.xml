@@ -5,7 +5,9 @@
     <string name="et_email">mail@mail.com</string>
     <string name="et_password">∙∙∙∙∙∙∙∙</string>
     <string name="bt_login">entrar</string>
+    <string name="bt_salvar_main">salvar</string>
     <string name="title_activity_calc">CalcActivity</string>
+    <string name="title_activity_main">MainActivity</string>
     <string name="tv_media1">0</string>
     <string name="tv_media2">0</string>
     <string name="tv_mediaFinal">0</string>
@@ -17,4 +19,7 @@
     <string name="tv_label_p2">Provas e trabalhos P2</string>
     <string name="tv_label_exame">Exame</string>
     <string name="et_hint_input_nota">0</string>
+    <string name="sp_universidades">Universidade</string>
+    <string name="sp_categorias_de_ensino">Categoria</string>
+
 </resources>
