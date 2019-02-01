@@ -4,14 +4,17 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.unicalc.guilhermealteia.unicalc.common.Media;
 
 public class CalcActivity extends AppCompatActivity {
 
@@ -23,22 +26,26 @@ public class CalcActivity extends AppCompatActivity {
     EditText etP1;
     EditText etP2;
     EditText etExame;
+    TextView tvmedia1;
+    TextView tvmedia2;
+    TextView tvmediaFinal;
 
     String universidade;
-    String tipoDeCurso;
+    String categoriaDeEnsino;
+    Media media = new Media();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         universidade = Universidades.UNIP.toString();
-        tipoDeCurso = TiposDeCurso.GRADUACAO.toString();
+        categoriaDeEnsino = CategoriasDeEnsino.GRADUACAO.toString();
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_calc);
 
         //Oculta a barra de título do app
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_calc);
         linearLayoutExame = findViewById(R.id.linear_layout_exame);
         linearLayoutExame.setVisibility(View.GONE);
 
@@ -50,36 +57,57 @@ public class CalcActivity extends AppCompatActivity {
         etP1 = findViewById(R.id.et_p1);
         etP2 = findViewById(R.id.et_p2);
         etExame = findViewById(R.id.et_exame);
+        tvmedia1 = findViewById(R.id.tv_media1);
+        tvmedia2 = findViewById(R.id.tv_media2);
+        tvmediaFinal = findViewById(R.id.tv_mediaFinal);
+
+        etP1.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                return false;
+            }
+        });
 
         btSalvarNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toogleVisibilidadeExame();
+
+                Double notaP1 = !etP1.getText().toString().equals("") ? Double.parseDouble(etP1.getText().toString()) : 0.0;
+                Double notaP2 = !etP2.getText().toString().equals("") ? Double.parseDouble(etP2.getText().toString()) : 0.0;
+                Double notaExame = !etExame.getText().toString().equals("") ? Double.parseDouble(etExame.getText().toString()) : 0.0;
+
+                Log.d("notaP1", notaP1.toString());
+
+                media.setNotaP1(notaP1);
+                media.setNotaP2(notaP2);
+                media.setNotaExame(notaExame);
+
+                toogleVisibilidadeExame(media);
+
+                tvmedia1.setText(media.getNotaP1().toString());
+                tvmedia2.setText(media.getNotaP2().toString());
+                tvmediaFinal.setText(media.getMediaFinal().toString());
             }
         });
     }
 
-    private void toogleVisibilidadeExame() {
-        String notaP1 = etP1.getText().toString();
-        String notaP2 = etP2.getText().toString();
+    private void toogleVisibilidadeExame(Media media) {
+        String etNotaP1 = etP1.getText().toString();
+        String etNotaP2 = etP2.getText().toString();
         String exame = etExame.getText().toString();
 
-        if(notaP1 != null && notaP2 != null //
-         && notaP1.length() > 0 && notaP2.length() > 0//
-                && isExameNeeded(notaP1, notaP2)) {
-            if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE)
+        if(etNotaP1 != null && etNotaP2 != null //
+         && etNotaP1.length() > 0 && etNotaP2.length() > 0//
+                && media.getExame(universidade, categoriaDeEnsino)) {
+            if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE) {
                 animarCampoExame(linearLayoutExame, "FADEIN");
+            } else if(media.getExame(universidade, categoriaDeEnsino) && linearLayoutExame.getVisibility() == View.GONE){
+                animarCampoExame(linearLayoutExame, "FADEIN");
+            }
         } else {
             if (linearLayoutExame.getVisibility() == View.VISIBLE)
                 animarCampoExame(linearLayoutExame, "FADEOUT");
-        }
-    }
-
-    private boolean isExameNeeded(String notaP1, String notaP2) {
-        if (universidade.equals(Universidades.UNIP.toString())) {
-            return ((Double.parseDouble(notaP1) + Double.parseDouble(notaP2)) / 2 < 7);
-        } else {
-            return ((Double.parseDouble(notaP1) + Double.parseDouble(notaP2)) / 2 < 6);
         }
     }
 

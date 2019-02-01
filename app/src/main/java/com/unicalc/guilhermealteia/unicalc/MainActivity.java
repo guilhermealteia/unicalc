@@ -1,18 +1,18 @@
 package com.unicalc.guilhermealteia.unicalc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         rlDetalhesCurso.setVisibility(View.GONE);
 
         TextView tvWelcome = findViewById(R.id.tv_welcome);
+        final Spinner spUniversidades = findViewById(R.id.sp_universidades);
+        final Spinner spCategoriasDeEnsino = findViewById(R.id.sp_categorias_de_ensino);
+        Button btSalvarMain = findViewById(R.id.bt_salvar_main);
+
 
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(3000);
@@ -39,14 +43,18 @@ public class MainActivity extends AppCompatActivity {
         tvWelcome.setVisibility(View.GONE);
         rlDetalhesCurso.setVisibility(View.VISIBLE);
 
-        Spinner spUniversidades = findViewById(R.id.sp_universidades);
-        Spinner spCategoriasDeEnsino = findViewById(R.id.sp_categorias_de_ensino);
 
         List<String> universidades = new ArrayList<>();
-        universidades.add("UNIP - Universidade Paulista");
+
+        for(Universidades s : Universidades.values()){
+            universidades.add(s.toString());
+        }
 
         List<String> categoriasDeEnsino = new ArrayList<>();
-        categoriasDeEnsino.add("Graduação");
+
+        for(CategoriasDeEnsino t : CategoriasDeEnsino.values()){
+            categoriasDeEnsino.add(t.toString());
+        }
 
         ArrayAdapter<String> adapterUniversidades = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, universidades);
 
@@ -54,5 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
         spUniversidades.setAdapter(adapterUniversidades);
         spCategoriasDeEnsino.setAdapter(adapterCategoriasDeEnsino);
+
+        btSalvarMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, CalcActivity.class);
+                myIntent.putExtra("universidade", spUniversidades.getSelectedItem().toString());
+                myIntent.putExtra("categoriaDeEnsino", spCategoriasDeEnsino.getSelectedItem().toString());
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
     }
 }

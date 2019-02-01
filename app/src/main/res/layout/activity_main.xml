@@ -86,14 +86,13 @@
         <Button
             android:id="@+id/bt_salvar_main"
             android:layout_below="@id/til_categorias_de_ensino"
-            android:layout_margin="@dimen/defaultMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bt_login"
-            android:text="@string/bt_salvar_main"
-            android:textAllCaps="false"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/bt_login" />
+            android:layout_margin="@dimen/fab_margin"
+            android:text="@string/bt_salvar_main"
+            android:background="@drawable/bt_salvar_notas"
+            android:textColor="@color/bt_salvar_notas"/>
 
     </RelativeLayout>
 

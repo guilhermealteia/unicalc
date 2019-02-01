@@ -50,8 +50,8 @@
             android:layout_marginLeft="@dimen/defaultMargin"
             android:layout_height="wrap_content">
             <TextView
-
                 android:id="@+id/tv_media1"
+                android:digits="."
                 android:layout_width="@dimen/bimestralMediaFields"
                 android:layout_height="@dimen/bimestralMediaFields"
                 android:background="@drawable/tv_media1"
