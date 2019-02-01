@@ -8,4 +8,6 @@
     <dimen name="default_padding_labels">10dp</dimen>
     <dimen name="default_height_labels">30dp</dimen>
     <dimen name="default_layout_weight_label">.85</dimen>
+    <dimen name="input_label_vertical_spacing">4dp</dimen>
+    <dimen name="input_label_horizontal_spacing">4dp</dimen>
 </resources>
