@@ -43,14 +43,14 @@
             android:layout_centerHorizontal="true"/>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout_media1"
+            android:id="@+id/relativeLayout_nota_p1"
             android:layout_width="wrap_content"
             android:layout_below="@id/tv_label_medias"
             android:layout_marginTop="@dimen/defaultMargin"
             android:layout_marginLeft="@dimen/defaultMargin"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_media1"
+                android:id="@+id/tv_nota_p1"
                 android:digits="."
                 android:layout_width="@dimen/bimestralMediaFields"
                 android:layout_height="@dimen/bimestralMediaFields"
@@ -59,26 +59,26 @@
                 android:textSize="@dimen/textSize_media_bimestral"
                 android:text="@string/tv_media1"/>
             <TextView
-                android:id="@+id/tv_label_media1"
+                android:id="@+id/tv_label_nota_p1"
                 android:layout_width="@dimen/bimestralMediaFields"
                 android:layout_height="@dimen/bimestralMediaFields"
                 android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"
-                android:layout_toRightOf="@id/tv_media1"
+                android:layout_toRightOf="@id/tv_nota_p1"
                 android:text="@string/tv_label_media1"/>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout_media2"
+            android:id="@+id/relativeLayout_nota_p2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/defaultMargin"
             android:layout_marginBottom="@dimen/defaultMargin"
-            android:layout_below="@+id/relativeLayout_media1">
+            android:layout_below="@+id/relativeLayout_nota_p1">
             <TextView
-                android:id="@+id/tv_media2"
+                android:id="@+id/tv_nota_p2"
                 android:layout_width="@dimen/bimestralMediaFields"
                 android:layout_height="@dimen/bimestralMediaFields"
                 android:background="@drawable/tv_media2"
@@ -87,12 +87,12 @@
                 android:text="@string/tv_media2"/>
 
             <TextView
-                android:id="@+id/tv_label_media2"
+                android:id="@+id/tv_label_nota_p2"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/bimestralMediaFields"
                 android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"
-                android:layout_toRightOf="@id/tv_media2"
+                android:layout_toRightOf="@id/tv_nota_p2"
                 android:text="@string/tv_label_media2"/>
         </RelativeLayout>
 

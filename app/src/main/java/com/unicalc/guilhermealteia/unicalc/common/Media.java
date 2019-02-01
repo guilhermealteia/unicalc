@@ -12,7 +12,7 @@ public class Media {
     private Boolean exame;
     private Double notaP1;
     private Double notaP2;
-    private Double notaExame;
+    private Double notaExame = 0.0;
     private Double mediaFinal;
 
     public Boolean getExame(String universidade, String categoriaDeEnsino) {
@@ -64,10 +64,9 @@ public class Media {
         this.notaExame = notaExame;
     }
 
-    public Double getMediaFinal(String universidade, String categoriaDeEnsino) {
-
-        if(getExame(universidade, categoriaDeEnsino)) {
-            mediaFinal = ((getNotaP1() + getNotaP2())/2) + getNotaExame();
+    public Double getMediaFinal(String universidade, String categoriaDeEnsino, Boolean consideraExame) {
+        if(consideraExame && getExame(universidade, categoriaDeEnsino)) {
+            mediaFinal = (((getNotaP1() + getNotaP2())/2 ) + getNotaExame())/2;
         } else
         {
             mediaFinal = (notaP1 + notaP2)/2;

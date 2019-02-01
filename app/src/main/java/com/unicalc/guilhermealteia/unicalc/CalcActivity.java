@@ -3,7 +3,6 @@ package com.unicalc.guilhermealteia.unicalc;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -26,8 +25,8 @@ public class CalcActivity extends AppCompatActivity {
     EditText etP1;
     EditText etP2;
     EditText etExame;
-    TextView tvmedia1;
-    TextView tvmedia2;
+    TextView tvNotaP1;
+    TextView tvNotaP2;
     TextView tvmediaFinal;
 
     String universidade;
@@ -57,8 +56,8 @@ public class CalcActivity extends AppCompatActivity {
         etP1 = findViewById(R.id.et_p1);
         etP2 = findViewById(R.id.et_p2);
         etExame = findViewById(R.id.et_exame);
-        tvmedia1 = findViewById(R.id.tv_media1);
-        tvmedia2 = findViewById(R.id.tv_media2);
+        tvNotaP1 = findViewById(R.id.tv_nota_p1);
+        tvNotaP2 = findViewById(R.id.tv_nota_p2);
         tvmediaFinal = findViewById(R.id.tv_mediaFinal);
 
         etP1.setOnKeyListener(new View.OnKeyListener() {
@@ -72,34 +71,71 @@ public class CalcActivity extends AppCompatActivity {
         btSalvarNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Double notaP1;
+                Double notaP2;
+                Double notaExame;
 
-                Double notaP1 = !etP1.getText().toString().equals("") ? Double.parseDouble(etP1.getText().toString()) : 0.0;
-                Double notaP2 = !etP2.getText().toString().equals("") ? Double.parseDouble(etP2.getText().toString()) : 0.0;
-                Double notaExame = !etExame.getText().toString().equals("") ? Double.parseDouble(etExame.getText().toString()) : 0.0;
-                if(notaP1 > 10.0) {
-                    notaP1 = 10.0;
-                    etP1.setText("10.0");
+
+                if (validateDoubleField(etP1)) {
+                    notaP1 = Double.parseDouble(etP1.getText().toString());
+
+                    if (notaP1 > 10.0) {
+                        notaP1 = 10.0;
+                        etP1.setText("10.0");
+                    }
+                    media.setNotaP1(notaP1);
+                    tvNotaP1.setText(media.getNotaP1().toString());
                 }
-                if(notaP2 > 10) {
-                    notaP2 = 10.0;
-                    etP2.setText("10.0");
+
+                if (validateDoubleField(etP2)) {
+                    notaP2 = Double.parseDouble(etP2.getText().toString());
+                    if(notaP2 > 10) {
+                        notaP2 = 10.0;
+                        etP2.setText("10.0");
+                    }
+                    media.setNotaP2(notaP2);
+                    tvNotaP2.setText(media.getNotaP2().toString());
                 }
 
-                    Log.d("notaP1", notaP1.toString());
+                if (validateDoubleField(etExame)) {
+                    notaExame = Double.parseDouble(etExame.getText().toString());
+                    if(notaExame > 10) {
+                        notaExame = 10.0;
+                        etExame.setText("10.0");
+                    }
+                    media.setNotaExame(notaExame);
+                }
 
-                media.setNotaP1(notaP1);
-                media.setNotaP2(notaP2);
-                media.setNotaExame(notaExame);
+                if(validateDoubleField(etP1) && validateDoubleField(etP2)) {
+                    if(validateDoubleField(etExame)) {
+                        tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino, true).toString());
+                        limparCampos(new EditText[]{etP1, etP2, etExame});
+                    } else{
+                        tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino, false).toString());
+                        limparCampos(new EditText[]{etP1, etP2});
+                    }
+                }
 
                 toogleVisibilidadeExame(media);
 
-                tvmedia1.setText(media.getNotaP1().toString());
-                tvmedia2.setText(media.getNotaP2().toString());
-                tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino).toString());
-
-              }
+            }
 
         });
+    }
+
+    private void limparCampos(EditText[] args){
+        EditText p1 = args[0];
+        EditText p2 = args[1];
+        p1.setText("");
+        p2.setText("");
+        p1.requestFocus();
+        if(args.length > 2) {
+            EditText exame = args[2];
+            exame.setText("");
+        }
+    }
+    private Boolean validateDoubleField(EditText et){
+        return !et.getText().toString().equals("") && !et.getText().toString().equals(".");
     }
 
     private void toogleVisibilidadeExame(Media media) {
@@ -109,6 +145,7 @@ public class CalcActivity extends AppCompatActivity {
 
         if(etNotaP1 != null && etNotaP2 != null //
          && etNotaP1.length() > 0 && etNotaP2.length() > 0//
+                && !".".equals(etNotaP1) && !".".equals(etNotaP2)
                 && media.getExame(universidade, categoriaDeEnsino)) {
             if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE) {
                 animarCampoExame(linearLayoutExame, "FADEIN");
