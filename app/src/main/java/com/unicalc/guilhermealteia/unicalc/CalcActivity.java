@@ -1,110 +1,141 @@
 package com.unicalc.guilhermealteia.unicalc;
 
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class CalcActivity extends AppCompatActivity {
 
 //    Intent intent;
     String value;
+    LinearLayout linearLayoutExame;
+    ConstraintLayout constraintLayout;
+    Button btSalvarNotas;
+    EditText etP1;
+    EditText etP2;
+    EditText etExame;
 
+    String universidade;
+    String tipoDeCurso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        universidade = Universidades.UNIP.toString();
+        tipoDeCurso = TiposDeCurso.GRADUACAO.toString();
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //Oculta a barra de título do app
         getSupportActionBar().hide();
+
         setContentView(R.layout.activity_calc);
+        linearLayoutExame = findViewById(R.id.linear_layout_exame);
+        linearLayoutExame.setVisibility(View.GONE);
 
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        constraintLayout = findViewById(R.id.constraintLayout);
 
-        RelativeLayout relativeLayout = findViewById(R.id.relativeLayout);
+        animarInicializacao(constraintLayout);
 
+        btSalvarNotas = findViewById(R.id.bt_salvar_notas);
+        etP1 = findViewById(R.id.et_p1);
+        etP2 = findViewById(R.id.et_p2);
+        etExame = findViewById(R.id.et_exame);
+
+        btSalvarNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toogleVisibilidadeExame();
+            }
+        });
+    }
+
+    private void toogleVisibilidadeExame() {
+        String notaP1 = etP1.getText().toString();
+        String notaP2 = etP2.getText().toString();
+        String exame = etExame.getText().toString();
+
+        if(notaP1 != null && notaP2 != null //
+         && notaP1.length() > 0 && notaP2.length() > 0//
+                && isExameNeeded(notaP1, notaP2)) {
+            if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE)
+                animarCampoExame(linearLayoutExame, "FADEIN");
+        } else {
+            if (linearLayoutExame.getVisibility() == View.VISIBLE)
+                animarCampoExame(linearLayoutExame, "FADEOUT");
+        }
+    }
+
+    private boolean isExameNeeded(String notaP1, String notaP2) {
+        if (universidade.equals(Universidades.UNIP.toString())) {
+            return ((Double.parseDouble(notaP1) + Double.parseDouble(notaP2)) / 2 < 7);
+        } else {
+            return ((Double.parseDouble(notaP1) + Double.parseDouble(notaP2)) / 2 < 6);
+        }
+    }
+
+    private void animarInicializacao(ConstraintLayout constraintLayout) {
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(1500);
+        anim.setDuration(2500);
         anim.setFillAfter(true);
         anim.setFillBefore(true);
         constraintLayout.startAnimation(anim);
+    }
 
-        //Instanciando o layout onde estao os campos de digitacao de notas
-        LinearLayout linearLayoutInputNotas = findViewById(R.id.ll_input_notas);
+    public void animarCampoExame(LinearLayout linearLayoutExame, String fadeMode){
+        final LinearLayout layout = linearLayoutExame;
 
-        //Criando o linearLayout para abrigar o textView e editText do campo exame
-        LinearLayout linearLayoutExame = new LinearLayout(this);
-        linearLayoutExame.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-        linearLayoutExame.setOrientation(LinearLayout.HORIZONTAL);
+        if("FADEIN".equals(fadeMode)){
+            AlphaAnimation fadeOut = new AlphaAnimation(0.0f, 1.0f);
+            fadeOut.setDuration(1000);
+            fadeOut.setFillBefore(true);
+            fadeOut.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    layout.setVisibility(View.VISIBLE);
+                }
 
-        //Criando o textView do exame
-        TextView textViewExame = new TextView(this);
-        textViewExame.setWidth(0);
-        textViewExame.setHeight(30);
-        textViewExame.setTypeface(null, Typeface.BOLD);
-        textViewExame.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        textViewExame.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        textViewExame.setBackground(ContextCompat.getDrawable(this, R.drawable.tv_label_p1_p2_exame));
-        textViewExame.setTextColor(getResources().getColor(R.color.colorWhite));
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                0, 30, 0.85f);
-        lp.setMargins(3,3,0,0);
-        textViewExame.setLayoutParams(lp);
-        textViewExame.setText(R.string.tv_label_exame);
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                }
 
-        EditText editTextExame = new EditText(this);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.MATCH_PARENT, 0.15f);
-        lp2.setMargins(0,3,3,3);
-        editTextExame.setLayoutParams(lp2);
-        editTextExame.setBackground(ContextCompat.getDrawable(this, R.drawable.tv_input_p1_p2_exame));
-        editTextExame.setInputType(1);
-        textViewExame.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        textViewExame.setHint(R.string.et_hint_input_nota);
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+            });
+            linearLayoutExame.startAnimation(fadeOut);
 
-        linearLayoutExame.addView(textViewExame);
-        linearLayoutExame.addView(editTextExame);
-        linearLayoutInputNotas.addView(linearLayoutExame);
-        //Criando o editText do exame
+        } else if("FADEOUT".equals(fadeMode)){
+            AlphaAnimation fadeIn = new AlphaAnimation(1.0f, 0.0f);
+            fadeIn.setDuration(1000);
+            fadeIn.setFillBefore(true);
+            fadeIn.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
 
-//
-//        anim = new AlphaAnimation(0.0f, 1.0f);
-//        anim.setDuration(3000);
-//        anim.setFillBefore(true);
-//        relativeLayout.startAnimation(anim);
+                }
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        intent = getIntent();
-//        value = intent.getStringExtra("email");
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        waitTime(fab,1000);
-//        Snackbar.make(fab, value, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-//
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    layout.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            linearLayoutExame.startAnimation(fadeIn);
+
+        }
     }
 }
