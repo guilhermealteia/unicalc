@@ -76,8 +76,16 @@ public class CalcActivity extends AppCompatActivity {
                 Double notaP1 = !etP1.getText().toString().equals("") ? Double.parseDouble(etP1.getText().toString()) : 0.0;
                 Double notaP2 = !etP2.getText().toString().equals("") ? Double.parseDouble(etP2.getText().toString()) : 0.0;
                 Double notaExame = !etExame.getText().toString().equals("") ? Double.parseDouble(etExame.getText().toString()) : 0.0;
+                if(notaP1 > 10.0) {
+                    notaP1 = 10.0;
+                    etP1.setText("10.0");
+                }
+                if(notaP2 > 10) {
+                    notaP2 = 10.0;
+                    etP2.setText("10.0");
+                }
 
-                Log.d("notaP1", notaP1.toString());
+                    Log.d("notaP1", notaP1.toString());
 
                 media.setNotaP1(notaP1);
                 media.setNotaP2(notaP2);
@@ -88,7 +96,9 @@ public class CalcActivity extends AppCompatActivity {
                 tvmedia1.setText(media.getNotaP1().toString());
                 tvmedia2.setText(media.getNotaP2().toString());
                 tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino).toString());
-            }
+
+              }
+
         });
     }
 

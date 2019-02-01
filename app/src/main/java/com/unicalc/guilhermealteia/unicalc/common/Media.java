@@ -8,6 +8,7 @@ import java.math.RoundingMode;
 
 public class Media {
 
+    public static final int DEFAULT_SCALE = 2;
     private Boolean exame;
     private Double notaP1;
     private Double notaP2;
@@ -37,7 +38,7 @@ public class Media {
     }
 
     public Double getNotaP1() {
-        BigDecimal bd = new BigDecimal(notaP1).setScale(3, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(notaP1).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 
@@ -46,7 +47,7 @@ public class Media {
     }
 
     public Double getNotaP2() {
-        BigDecimal bd = new BigDecimal(notaP2).setScale(3, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(notaP2).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 
@@ -55,7 +56,7 @@ public class Media {
     }
 
     public Double getNotaExame() {
-        BigDecimal bd = new BigDecimal(notaExame).setScale(3, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(notaExame).setScale(DEFAULT_SCALE, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 
