@@ -3,6 +3,9 @@ package com.unicalc.guilhermealteia.unicalc.common;
 import com.unicalc.guilhermealteia.unicalc.CategoriasDeEnsino;
 import com.unicalc.guilhermealteia.unicalc.Universidades;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Media {
 
     private Boolean exame;
@@ -34,7 +37,8 @@ public class Media {
     }
 
     public Double getNotaP1() {
-        return notaP1;
+        BigDecimal bd = new BigDecimal(notaP1).setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setNotaP1(Double notaP1) {
@@ -42,7 +46,8 @@ public class Media {
     }
 
     public Double getNotaP2() {
-        return notaP2;
+        BigDecimal bd = new BigDecimal(notaP2).setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setNotaP2(Double notaP2) {
@@ -50,7 +55,8 @@ public class Media {
     }
 
     public Double getNotaExame() {
-        return notaExame;
+        BigDecimal bd = new BigDecimal(notaExame).setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setNotaExame(Double notaExame) {
@@ -60,12 +66,13 @@ public class Media {
     public Double getMediaFinal(String universidade, String categoriaDeEnsino) {
 
         if(getExame(universidade, categoriaDeEnsino)) {
-            mediaFinal = ((notaP1 + notaP2)/2) + notaExame;
+            mediaFinal = ((getNotaP1() + getNotaP2())/2) + getNotaExame();
         } else
         {
             mediaFinal = (notaP1 + notaP2)/2;
         }
-        return mediaFinal;
+        BigDecimal bd = new BigDecimal(mediaFinal).setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setMediaFinal(Double mediaFinal) {

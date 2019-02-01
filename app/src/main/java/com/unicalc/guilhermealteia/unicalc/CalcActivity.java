@@ -87,7 +87,7 @@ public class CalcActivity extends AppCompatActivity {
 
                 tvmedia1.setText(media.getNotaP1().toString());
                 tvmedia2.setText(media.getNotaP2().toString());
-                tvmediaFinal.setText(media.getMediaFinal().toString());
+                tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino).toString());
             }
         });
     }
