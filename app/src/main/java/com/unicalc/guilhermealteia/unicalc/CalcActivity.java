@@ -144,7 +144,7 @@ public class CalcActivity extends AppCompatActivity {
         String exame = etExame.getText().toString();
 
         if(etNotaP1 != null && etNotaP2 != null //
-         && etNotaP1.length() > 0 && etNotaP2.length() > 0//
+         && etNotaP1.length() >= 0 && etNotaP2.length() >= 0//
                 && !".".equals(etNotaP1) && !".".equals(etNotaP2)
                 && media.getExame(universidade, categoriaDeEnsino)) {
             if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE) {

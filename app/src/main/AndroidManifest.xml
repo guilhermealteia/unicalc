@@ -26,10 +26,12 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CalcActivity"
             android:label="@string/title_activity_calc"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
