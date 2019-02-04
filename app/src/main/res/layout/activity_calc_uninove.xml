@@ -23,24 +23,24 @@
 
         <TextView
             android:id="@+id/tv_label_medias"
-            android:layout_width="match_parent"
+            android:layout_width="353dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_label_medias"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/tv_label_medias_uninove"
+            android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:shadowColor="@color/cinza_escuro_uninove"
             android:shadowDx="1.5"
             android:shadowDy="1.3"
             android:shadowRadius="1.6"
-            android:textColor="@color/azul_unip"
-            android:background="@drawable/tv_label_medias_uninove"
-            android:layout_centerHorizontal="true"/>
+            android:text="@string/tv_label_medias"
+            android:textColor="@color/vermelho_uninove"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout_nota_p1"
@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="@dimen/defaultMargin"
-            android:background="@drawable/container_calc_bg">
+            android:background="@drawable/container_calc_bg_uninove">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,7 +147,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="@dimen/default_layout_weight_label"
                     android:layout_height="@dimen/default_height_labels"
-                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:background="@drawable/tv_label_p1_p2_exame_uninove"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -163,7 +163,7 @@
                     android:layout_width="0dp"
                     android:layout_weight=".15"
                     android:layout_height="match_parent"
-                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:background="@drawable/tv_input_p1_p2_exame_uninove"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:textAlignment="center"
@@ -185,7 +185,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="@dimen/default_layout_weight_label"
                     android:layout_height="@dimen/default_height_labels"
-                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:background="@drawable/tv_label_p1_p2_exame_uninove"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -201,7 +201,7 @@
                     android:layout_width="0dp"
                     android:layout_weight=".15"
                     android:layout_height="match_parent"
-                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:background="@drawable/tv_input_p1_p2_exame_uninove"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:textAlignment="center"
@@ -224,7 +224,7 @@
                     android:layout_width="0dp"
                     android:layout_weight=".85"
                     android:layout_height="@dimen/default_height_labels"
-                    android:background="@drawable/tv_label_p1_p2_exame"
+                    android:background="@drawable/tv_label_p1_p2_exame_uninove"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
                     android:textAlignment="center"
@@ -240,7 +240,7 @@
                     android:layout_width="0dp"
                     android:layout_weight=".15"
                     android:layout_height="match_parent"
-                    android:background="@drawable/tv_input_p1_p2_exame"
+                    android:background="@drawable/tv_input_p1_p2_exame_uninove"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:textAlignment="center"
@@ -260,7 +260,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/fab_margin"
                 android:text="SALVAR"
-                android:background="@drawable/bt_salvar_notas"
+                android:background="@drawable/bt_salvar_notas_uninove"
                 android:textColor="@color/bt_salvar_notas"/>
         </LinearLayout>
     </ScrollView>
