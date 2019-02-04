@@ -34,6 +34,9 @@ public class CalcActivity extends AppCompatActivity {
     String categoriaDeEnsino;
     Media media = new Media();
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +44,8 @@ public class CalcActivity extends AppCompatActivity {
         universidade = getIntent().getStringExtra("universidade");
         categoriaDeEnsino = getIntent().getStringExtra("categoriaDeEnsino");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_calc);
-
+        seletorDeLayout(universidade);
+        
         //Oculta a barra de título do app
 //        getSupportActionBar().hide();
 
@@ -125,6 +128,16 @@ public class CalcActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+
+    public void seletorDeLayout(String universidade){
+
+        if(universidade.contains("UNIP")){
+            setContentView(R.layout.activity_calc);
+        }else if(universidade.contains("UNINOVE")){
+            setContentView(R.layout.activity_calc_uninove);
+        }
     }
 
     private void limparCampos(EditText[] args){

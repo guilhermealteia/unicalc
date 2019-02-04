@@ -13,13 +13,18 @@
     <string name="tv_mediaFinal">0</string>
     <string name="tv_label_media1">P1</string>
     <string name="tv_label_media2">P2</string>
+    <string name="tv_label_media1_uninove">AV1</string>
+    <string name="tv_label_media2_uninove">AV2</string>
     <string name="tv_label_mediaFinal">Média Final</string>
     <string name="tv_label_medias">RESULTADOS</string>
-    <string name="tv_label_p1">Provas e trabalhos P1</string>
-    <string name="tv_label_p2">Provas e trabalhos P2</string>
+    <string name="tv_label_media_uninove">RESULTADOS</string>
+    <string name="tv_label_p1">Provas e Trabalhos P1</string>
+    <string name="tv_label_p2">Provas e Trabalhos P2</string>
+    <string name="tv_label_av1_uninove">Provas e Trabalhos AV1</string>
+    <string name="tv_label_av2_uninove">Provas e Trabalhos AV2</string>
     <string name="tv_label_exame">Exame</string>
     <string name="et_hint_input_nota">0</string>
-    <string name="sp_universidades">Universidade</string>
+    <string name="sp_universidades">Selecione a instituição</string>
     <string name="sp_categorias_de_ensino">Categoria</string>
 
 </resources>

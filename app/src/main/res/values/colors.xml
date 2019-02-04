@@ -9,5 +9,8 @@
     <color name="cinza_escuro_unip">#5a000200</color>
     <color name="azul_unip">#263a7f</color>
     <color name="amarelo_unip">#f0f900</color>
-    <color name="azul_claro_unip">#6994cb</color>#fcfcfc
+    <color name="azul_claro_unip">#6994cb</color>
+    <color name="cinza_uninove">#EEEEEE</color>
+    <color name="cinza_escuro_uninove">#D6D4D4</color>
+    <color name="vermelho_uninove">#D30D00</color>
 </resources>
