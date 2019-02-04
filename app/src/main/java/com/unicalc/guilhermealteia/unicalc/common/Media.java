@@ -71,7 +71,7 @@ public class Media {
         {
             mediaFinal = (notaP1 + notaP2)/2;
         }
-        BigDecimal bd = new BigDecimal(mediaFinal).setScale(3, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal(mediaFinal).setScale(2, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
 

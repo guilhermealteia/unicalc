@@ -1,5 +1,6 @@
 package com.unicalc.guilhermealteia.unicalc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -36,9 +37,9 @@ public class CalcActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        universidade = Universidades.UNIP.toString();
-        categoriaDeEnsino = CategoriasDeEnsino.GRADUACAO.toString();
 
+        universidade = getIntent().getStringExtra("universidade");
+        categoriaDeEnsino = getIntent().getStringExtra("categoriaDeEnsino");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_calc);
 
@@ -110,6 +111,9 @@ public class CalcActivity extends AppCompatActivity {
                     if(validateDoubleField(etExame)) {
                         tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino, true).toString());
                         limparCampos(new EditText[]{etP1, etP2, etExame});
+                    } else if (media.getExame(universidade, categoriaDeEnsino)){
+                        tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino, false).toString());
+                        toogleVisibilidadeExame(media);
                     } else{
                         tvmediaFinal.setText(media.getMediaFinal(universidade, categoriaDeEnsino, false).toString());
                         limparCampos(new EditText[]{etP1, etP2});
@@ -144,7 +148,7 @@ public class CalcActivity extends AppCompatActivity {
         String exame = etExame.getText().toString();
 
         if(etNotaP1 != null && etNotaP2 != null //
-         && etNotaP1.length() >= 0 && etNotaP2.length() >= 0//
+         && etNotaP1.length() > 0 && etNotaP2.length() > 0//
                 && !".".equals(etNotaP1) && !".".equals(etNotaP2)
                 && media.getExame(universidade, categoriaDeEnsino)) {
             if(exame != null && exame.length() == 0 && linearLayoutExame.getVisibility() == View.GONE) {
