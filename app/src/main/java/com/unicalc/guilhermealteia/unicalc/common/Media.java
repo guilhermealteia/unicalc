@@ -16,6 +16,14 @@ public class Media {
     private Double mediaFinal;
 
     public Boolean getExame(String universidade, String categoriaDeEnsino) {
+        if(Universidades.UNINOVE.toString().equals(universidade) &&  CategoriasDeEnsino.GRADUACAO.toString().equals(categoriaDeEnsino) ){
+            exame = (notaP1 + notaP2) / 2 < 6;
+            return exame;
+        }else if(Universidades.UNINOVE.toString().equals(universidade)&& CategoriasDeEnsino.TECNOLOGO.toString().equals(categoriaDeEnsino)){
+            exame = (notaP1 + notaP2) / 2 < 5;
+            return exame;
+        }
+
         //UNIP GRADUACAO
         if (Universidades.UNIP.toString().equals(universidade) && CategoriasDeEnsino.GRADUACAO.toString().equals(categoriaDeEnsino))
         {
